@@ -32,7 +32,7 @@ class NtfySender:
         ntfy_user: Optional[str] = None,
         ntfy_password: Optional[str] = None,
     ) -> None:
-        """Initialize and instace of the class
+        """Initialize and instance of the class
 
         Args:
             server_url (str): NTFY server URL
