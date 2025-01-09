@@ -78,6 +78,7 @@ class NtfySender:
         link_url: Optional[str] = None,
         topic: Optional[str] = None,
         tags: Optional[str] = None,
+        icon: Optional[str] = None,
         timeout: int = 10
     ):
         """Send a notification message
@@ -88,6 +89,7 @@ class NtfySender:
             link_url (Optional[str], optional): URL to open when the notification is pressed. Defaults to None
             topic (Optional[str], optional): topic to send the message. If None then self.default_topic is used. Defaults to None
             tags (Optional[str], optional): tags to include in the title. Defaults to None
+            icon (Optional[str], optional): message icon to show. Defaults to None
             timeout (int, optional): time in seconds to wait. Defaults to 10
         """
         topic_send = self.default_topic if topic is None else topic
@@ -97,6 +99,9 @@ class NtfySender:
 
         if tags is not None:
             self.headers["Tags"] = tags
+
+        if icon is not None:
+            self.headers["Icon"] = icon
 
         requests.post(
             url=self.server_url,
