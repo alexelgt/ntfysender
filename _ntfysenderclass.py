@@ -80,7 +80,7 @@ class NtfySender:
         tags: Optional[str] = None,
         icon: Optional[str] = None,
         timeout: int = 10
-    ):
+    ) -> None:
         """Send a notification message
 
         Args:
