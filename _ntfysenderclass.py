@@ -37,8 +37,8 @@ class NtfySender:
         Args:
             server_url (str): NTFY server URL
             default_topic (str): default topic to use when a message is sent
-            ntfy_user (Optional[str], optional): NTFY user for Basic authentication. Defaults to None
-            ntfy_password (Optional[str], optional): NTFY password for Basic authentication. Defaults to None
+            ntfy_user (str, optional): NTFY user for Basic authentication. Defaults to None
+            ntfy_password (str, optional): NTFY password for Basic authentication. Defaults to None
         """
         self.server_url = server_url
         self.default_topic = default_topic
@@ -53,8 +53,8 @@ class NtfySender:
         """Set authentication for the requests sent to the NFTY server
 
         Args:
-            ntfy_user (Optional[str], optional): NTFY user for Basic authentication. Defaults to None
-            ntfy_password (Optional[str], optional): NTFY password for Basic authentication. Defaults to None
+            ntfy_user (str, optional): NTFY user for Basic authentication. Defaults to None
+            ntfy_password (str, optional): NTFY password for Basic authentication. Defaults to None
         """
         if ntfy_user is None or ntfy_password is None:
             self._auth = None
@@ -86,10 +86,10 @@ class NtfySender:
         Args:
             title (str): Title of the message
             message (str): Body of the message
-            link_url (Optional[str], optional): URL to open when the notification is pressed. Defaults to None
-            topic (Optional[str], optional): topic to send the message. If None then self.default_topic is used. Defaults to None
-            tags (Optional[str], optional): tags to include in the title. Defaults to None
-            icon (Optional[str], optional): message icon to show. Defaults to None
+            link_url (str, optional): URL to open when the notification is pressed. Defaults to None
+            topic (str, optional): topic to send the message. If None then self.default_topic is used. Defaults to None
+            tags (str, optional): tags to include in the title. Defaults to None
+            icon (str, optional): message icon to show. Defaults to None
             timeout (int, optional): time in seconds to wait. Defaults to 10
         """
         topic_send = self.default_topic if topic is None else topic
